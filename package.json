@@ -1,15 +1,21 @@
 {
-  "name": "storybook-addon-kit",
+  "name": "storybook-addon-badges",
   "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "description": "A Storybook addon which allows you to add badges to your stories",
   "keywords": [
+    "storybook-addons",
+    "storybook",
+    "addon",
+    "layout",
+    "organize",
+    "badges",
     "storybook-addons"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/geometricpanda/storybook-addon-badges"
   },
-  "author": "package-author",
+  "author": "Jim Drury <jim@jimdrury.co.uk>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -21,7 +27,6 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "node scripts/welcome.js",
     "clean": "rimraf ./dist",
     "buildBabel": "concurrently \"yarn buildBabel:cjs\" \"yarn buildBabel:esm\"",
     "buildBabel:cjs": "babel ./src -d ./dist/cjs --extensions \".js,.jsx,.ts,.tsx\"",
@@ -80,9 +85,17 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "Badges",
     "supportedFrameworks": [
-      "supported-frameworks"
+      "react",
+      "vue",
+      "angular",
+      "web-components",
+      "ember",
+      "html",
+      "svelte",
+      "preact",
+      "react-native"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
   }
