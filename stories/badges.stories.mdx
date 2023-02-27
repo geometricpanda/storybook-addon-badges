@@ -1,18 +1,32 @@
-[![npm version](https://badge.fury.io/js/%40geometricpanda%2Fstorybook-addon-badges.svg)](https://www.npmjs.com/package/@geometricpanda/storybook-addon-badges)
+import { Meta } from '@storybook/addon-docs';
+import {BADGE} from "../src/shared";
+
+<Meta
+    title="Addon Badges/Docs"
+    parameters={{
+        badges: [
+            BADGE.DEFAULT,
+            BADGE.BETA,
+            BADGE.STABLE,
+            BADGE.DEPRECATED,
+            BADGE.EXPERIMENTAL,
+            BADGE.NEEDS_REVISION,
+            BADGE.OBSOLETE,
+        ],
+    }}
+/>
 
 # Storybook Addon Badges
 
 Using `@geometricpanda/storybook-addon-badges` you're able to add badges to
-your [Storybook](https://storybook.js.org) app.
-
-![Screenshot of Storybook](https://github.com/geometricpanda/geometricpanda/blob/main/libs/storybook-addon-badges/media/screenshot.png?raw=true)
+your Storybook app.
 
 ## Installation
 
 NPM:
 
 ```shell
-npm install @geometricpanda/storybook-addon-badges --save
+npm install @geometricpanda/storybook-addon-badges
 ```
 
 Yarn:
@@ -25,7 +39,7 @@ yarn add @geometricpanda/storybook-addon-badges
 
 In your `.storybook/main.js` you'll need to load `@geometricpanda/storybook-addon-badges` into Storybook:
 
-```js
+```ts
 // .storybook/main.js
 module.exports = {
   stories: [],
@@ -35,7 +49,7 @@ module.exports = {
 
 Optionally, you can define custom badge styles in `.storybook/preview.js`.
 
-```js
+```ts
 // .storybook/preview.js
 import { addParameters } from '@storybook/react';
 
@@ -65,11 +79,16 @@ addParameters({
 
 Optionally, you can define more complex tooltips for any of your badges.
 
-```js
+```ts
+import {
+  BADGE,
+  defaultBadgesConfig,
+} from '@geometricpanda/storybook-addon-badges';
+
 addParameters({
   badgesConfig: {
-    beta: {
-      ...betaConfig,
+    [BADGE.BETA]: {
+      ...defaultBadgesConfig[BADGE.BETA],
       tooltip: {
         title: 'This is Beta',
         desc: 'Be ready to receive updates frequently and leave a feedback',
@@ -77,15 +96,13 @@ addParameters({
           { title: 'Read more', href: 'http://path/to/your/docs' },
           {
             title: 'Leave feedback',
-            onClick: () => {
-              alert('thanks for the feedback');
-            },
+            onClick: () => alert('thanks for the feedback'),
           },
         ],
       },
     },
-    deprecated: {
-      ...deprecatedConfig,
+    [BADGE.BETA]: {
+      ...defaultBadgesConfig[BADGE.DEPRECATED],
       tooltip: 'This component is deprecated, please avoid using it.',
     },
   },
@@ -130,7 +147,7 @@ addParameters({
 
 You can import a collection of preconfigured badges using the following import:
 
-```js
+```ts
 import { BADGE } from '@geometricpanda/storybook-addon-badges';
 ```
 
@@ -149,16 +166,17 @@ Should you wish to override these styles you can do by configuring a badge with 
 ```typescript
 // .storybook/preview.js
 import { addParameters } from '@storybook/react';
+import { BADGE } from '@geometricpanda/storybook-addon-badges';
 
 addParameters({
   badgesConfig: {
-    [BADGES.STATUS]: {
+    [BADGE.DEFAULT]: {
       styles: {
         backgroundColor: '#FFF',
         borderColor: '#018786',
         color: '#018786',
       },
-      title: 'Status',
+      title: 'New Title',
     },
   },
 });
@@ -191,7 +209,7 @@ Please migrate to the `styles` property.
 
 The following will apply the badges to all components within your Story:
 
-```jsx
+```tsx
 import { BADGE } from '@geometricpanda/storybook-addon-badges';
 
 export default {
@@ -212,7 +230,7 @@ export const ThirdComponent = Template.bind({});
 
 You can also selectively add badges to each Story:
 
-```jsx
+```tsx
 import { BADGE } from '@geometricpanda/storybook-addon-badges';
 
 export default {
@@ -241,7 +259,7 @@ ThirdComponent.parameters = {
 
 When applying Badges to all Stories you can selectively remove them too:
 
-```jsx
+```tsx
 import { BADGE } from '@geometricpanda/storybook-addon-badges';
 
 export default {
@@ -267,7 +285,7 @@ ThirdComponent.parameters = {
 In your `mdx` documentation you can add badges to your stories
 using the `<Meta>` component.
 
-```jsx
+```tsx
 import { Meta } from '@storybook/addon-docs/blocks';
 import { BADGE } from '@geometricpanda/storybook-addon-badges';
 
