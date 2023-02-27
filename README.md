@@ -5,7 +5,7 @@
 Using `@geometricpanda/storybook-addon-badges` you're able to add badges to
 your [Storybook](https://storybook.js.org) app.
 
-![Screenshot of Storybook](https://github.com/geometricpanda/geometricpanda/blob/main/libs/storybook-addon-badges/media/screenshot.png?raw=true)
+![Screenshot of Storybook](https://raw.githubusercontent.com/geometricpanda/storybook-addon-badges/main/media/screenshot.png)
 
 ## Installation
 
