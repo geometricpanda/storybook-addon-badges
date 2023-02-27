@@ -2,15 +2,15 @@
 
 #### 💥 Breaking Change
 
-- docs: updates docs to new repo path [#2](https://github.com/geometricpanda/storybook-addon-badges/pull/2) (jim.drury@virginmediao2.co.uk [@geometricpanda](https://github.com/geometricpanda))
+- docs: updates docs to new repo path [#2](https://github.com/geometricpanda/storybook-addon-badges/pull/2) (jim@jimdrury.co.uk [@geometricpanda](https://github.com/geometricpanda))
 
 #### 🚀 Enhancement
 
-- refactor: migrates badges into storybook addon kit format [#1](https://github.com/geometricpanda/storybook-addon-badges/pull/1) (jim.drury@virginmediao2.co.uk [@geometricpanda](https://github.com/geometricpanda))
+- refactor: migrates badges into storybook addon kit format [#1](https://github.com/geometricpanda/storybook-addon-badges/pull/1) (jim@jimdrury.co.uk [@geometricpanda](https://github.com/geometricpanda))
 
 #### ⚠️ Pushed to `main`
 
-- project setup (jim.drury@virginmediao2.co.uk)
+- project setup (jim@jimdrury.co.uk)
 - fix: `postinstall` script removal ([@sheriffMoose](https://github.com/sheriffMoose))
 - fix: welcome message grammar ([@eddiemonge](https://github.com/eddiemonge))
 - FIxes broken links ([@jonniebigodes](https://github.com/jonniebigodes))
@@ -68,7 +68,7 @@
 - Gert Hengeveld ([@ghengeveld](https://github.com/ghengeveld))
 - Ítalo Teixeira ([@italoteix](https://github.com/italoteix))
 - Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
-- Jim Drury (jim.drury@virginmediao2.co.uk)
+- Jim Drury (jim@jimdrury.co.uk)
 - Kyle Jenkins ([@kjenkins19](https://github.com/kjenkins19))
 - Makoto Tateno ([@makotot](https://github.com/makotot))
 - Michael Chan ([@chantastic](https://github.com/chantastic))
