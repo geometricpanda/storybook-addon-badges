@@ -1,3 +1,16 @@
+# v1.0.1 (Mon Feb 27 2023)
+
+#### 🐛 Bug Fix
+
+- fix: resolves issue with preview preset [#3](https://github.com/geometricpanda/storybook-addon-badges/pull/3) (jim.drury@virginmediao2.co.uk [@geometricpanda](https://github.com/geometricpanda))
+
+#### Authors: 2
+
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+- Jim Drury (jim.drury@virginmediao2.co.uk)
+
+---
+
 # v1.0.0 (Mon Feb 27 2023)
 
 #### 💥 Breaking Change
