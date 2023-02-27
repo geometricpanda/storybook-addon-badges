@@ -1,27 +1,26 @@
-import React, { useCallback } from "react";
-import { useGlobals } from "@storybook/api";
-import { Icons, IconButton } from "@storybook/components";
-import { TOOL_ID } from "./constants";
+import React from "react";
+import {Combo, Consumer} from "@storybook/api";
+import {defaultBadgesConfig, PARAM_BADGES_CONFIG_KEY, PARAM_BADGES_KEY} from "./shared";
+import {BadgesConfig} from "./typings";
+import {Badges} from "./components";
 
-export const Tool = () => {
-  const [{ myAddon }, updateGlobals] = useGlobals();
+export const Tool = () => (
+    <Consumer>
+        {({api, state}: Combo) => {
+            const story = api.getData(state.storyId, state.refId);
+            const customBadgesConfig = api.getCurrentParameter<BadgesConfig[]>(PARAM_BADGES_CONFIG_KEY) || {};
 
-  const toggleMyTool = useCallback(
-    () =>
-      updateGlobals({
-        myAddon: myAddon ? undefined : true,
-      }),
-    [myAddon]
-  );
+            const badgesConfig = {
+                ...defaultBadgesConfig,
+                ...customBadgesConfig,
+            };
 
-  return (
-    <IconButton
-      key={TOOL_ID}
-      active={myAddon}
-      title="Enable my addon"
-      onClick={toggleMyTool}
-    >
-      <Icons icon="lightning" />
-    </IconButton>
-  );
-};
+            const badges = api.getCurrentParameter<string[]>(PARAM_BADGES_KEY) || [];
+
+            return story && badges.length
+                ? <Badges badges={badges}
+                          badgesConfig={badgesConfig}/>
+                : null;
+        }}
+    </Consumer>
+);
