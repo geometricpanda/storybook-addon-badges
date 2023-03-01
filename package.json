@@ -19,6 +19,7 @@
     "url": "https://github.com/geometricpanda/storybook-addon-badges/issues"
   },
   "author": "Jim Drury <jim@jimdrury.co.uk>",
+  "homepage": "https://geometricpanda.github.io/storybook-addon-badges/",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
