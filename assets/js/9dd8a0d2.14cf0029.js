@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstorybook_addon_badges_docs=self.webpackChunkstorybook_addon_badges_docs||[]).push([[54],{7275:(o,e,t)=>{t.r(e),t.d(e,{default:()=>a});var d=t(7294),s=t(6550);function a(){return d.createElement(s.l_,{to:"/storybook-addon-badges/docs/category/getting-started"})}}}]);
