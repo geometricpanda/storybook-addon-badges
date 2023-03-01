@@ -33,14 +33,15 @@ module.exports = {
 };
 ```
 
-Optionally, you can define custom badge styles in `.storybook/preview.js`.
+Optionally, you can define custom badge styles in `.storybook/preview.ts`.
 
-```js
-// .storybook/preview.js
-import { addParameters } from '@storybook/react';
+```ts
+// .storybook/preview.ts
+import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import {addParameters} from '@storybook/react';
 
 addParameters({
-  badgesConfig: {
+  badgesConfig: <BadgesConfig>{
     beta: {
       styles: {
         backgroundColor: '#FFF',
@@ -65,11 +66,14 @@ addParameters({
 
 Optionally, you can define more complex tooltips for any of your badges.
 
-```js
+```ts
+// .storybook/preview.ts
+import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import {addParameters} from '@storybook/react';
+            
 addParameters({
-  badgesConfig: {
+  badgesConfig: <BadgesConfig>{
     beta: {
-      ...betaConfig,
       tooltip: {
         title: 'This is Beta',
         desc: 'Be ready to receive updates frequently and leave a feedback',
@@ -85,7 +89,7 @@ addParameters({
       },
     },
     deprecated: {
-      ...deprecatedConfig,
+      title: "Deprecated",
       tooltip: 'This component is deprecated, please avoid using it.',
     },
   },
@@ -109,12 +113,13 @@ export enum BADGES {
   STATUS = 'status',
 }
 
-// .storybook/preview.js
-import { addParameters } from '@storybook/react';
+// .storybook/preview.ts
+import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import {addParameters} from '@storybook/react';
 
 addParameters({
-  badgesConfig: {
-    [BADGES.STATUS]: {
+  badgesConfig: <BadgesConfig>{
+    [BADGE.STATUS]: {
       styles: {
         backgroundColor: '#FFF',
         borderColor: '#018786',
@@ -147,20 +152,21 @@ You can then use these badges by passing in the following enum values:
 Should you wish to override these styles you can do by configuring a badge with the same key:
 
 ```typescript
-// .storybook/preview.js
-import { addParameters } from '@storybook/react';
+// .storybook/preview.ts
+import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import {addParameters} from '@storybook/react';
 
 addParameters({
-  badgesConfig: {
-    [BADGES.STATUS]: {
-      styles: {
-        backgroundColor: '#FFF',
-        borderColor: '#018786',
-        color: '#018786',
-      },
-      title: 'Status',
+    badgesConfig: <BadgeConfig>{
+        [BADGE.STATUS]: {
+            styles: {
+                backgroundColor: '#FFF',
+                borderColor: '#018786',
+                color: '#018786',
+            },
+            title: 'Status',
+        },
     },
-  },
 });
 ```
 
