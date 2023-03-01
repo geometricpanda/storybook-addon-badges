@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstorybook_addon_badges_docs=self.webpackChunkstorybook_addon_badges_docs||[]).push([[722],{5745:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
