@@ -1,3 +1,20 @@
+# v1.1.0 (Wed Mar 01 2023)
+
+#### 🚀 Enhancement
+
+- Refactor/simplify badge [#10](https://github.com/geometricpanda/storybook-addon-badges/pull/10) ([@geometricpanda](https://github.com/geometricpanda))
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/geometricpanda/storybook-addon-badges (jim.drury@virginmediao2.co.uk)
+
+#### Authors: 2
+
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+- Jim Drury (jim.drury@virginmediao2.co.uk)
+
+---
+
 # v1.0.2 (Mon Feb 27 2023)
 
 #### 🐛 Bug Fix
