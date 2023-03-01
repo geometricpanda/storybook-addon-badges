@@ -1,3 +1,16 @@
+# v1.0.2 (Mon Feb 27 2023)
+
+#### 🐛 Bug Fix
+
+- fix: exports badges in default export [#6](https://github.com/geometricpanda/storybook-addon-badges/pull/6) (jim.drury@virginmediao2.co.uk [@geometricpanda](https://github.com/geometricpanda))
+
+#### Authors: 2
+
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+- Jim Drury (jim.drury@virginmediao2.co.uk)
+
+---
+
 # v1.0.1 (Mon Feb 27 2023)
 
 #### 🐛 Bug Fix
