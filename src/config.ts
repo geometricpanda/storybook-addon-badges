@@ -1,4 +1,4 @@
-import {BadgeConfig, BadgesConfig} from "./typings";
+import {BadgeConfig, BadgesConfig} from "./typings.interface";
 
 export const PARAM_BADGES_CONFIG_KEY = 'badgesConfig';
 export const PARAM_BADGES_KEY = 'badges';
@@ -67,5 +67,4 @@ export const defaultBadgesConfig: BadgesConfig = {
     },
 };
 
-export const defaultBadgeConfig: BadgeConfig =
-    defaultBadgesConfig[BADGE.DEFAULT];
+export const defaultBadgeConfig: BadgeConfig = defaultBadgesConfig[BADGE.DEFAULT];
