@@ -1,3 +1,15 @@
+# v1.1.1 (Wed Mar 01 2023)
+
+#### ⚠️ Pushed to `main`
+
+- feat: updates icon and storybook metadata ([@geometricpanda](https://github.com/geometricpanda))
+
+#### Authors: 1
+
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+
+---
+
 # v1.1.0 (Wed Mar 01 2023)
 
 #### 🚀 Enhancement
