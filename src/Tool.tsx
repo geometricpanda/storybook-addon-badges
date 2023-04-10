@@ -1,18 +1,39 @@
-import React from "react";
-import {Combo, Consumer} from "@storybook/api";
+//
+// export const Tool = memo(function MyAddonSelector() {
+//   const [globals, updateGlobals] = useGlobals();
+//
+//   const isActive = [true, "true"].includes(globals[PARAM_KEY]);
+//
+//   const toggleMyTool = useCallback(() => {
+//     updateGlobals({
+//       [PARAM_KEY]: !isActive,
+//     });
+//   }, [isActive]);
+//
+//   return (
+//     <IconButton
+//       key={TOOL_ID}
+//       active={isActive}
+//       title="Enable my addon"
+//       onClick={toggleMyTool}
+//     >
+//       <Icons icon="lightning" />
+//     </IconButton>
+//   );
+// });
 
-import {PARAM_BADGES_KEY} from "./config";
+import {useStorybookApi} from "@storybook/manager-api";
+import React from "react";
+
+import {PARAM_BADGES_KEY} from "./constants";
 import {BadgesToolbar} from "./components";
 
-export const Tool = () => (
-    <Consumer>
-        {({api, state}: Combo) => {
-            const story = api.getData(state.storyId, state.refId);
-            const badges = api.getCurrentParameter<string[]>(PARAM_BADGES_KEY) || [];
+export const Tool = function AddonBadges() {
+    const api = useStorybookApi();
+    const badges = api.getCurrentParameter<string[]>(PARAM_BADGES_KEY) || [];
 
-            return story && badges.length
-                ? <BadgesToolbar badges={badges}/>
-                : null;
-        }}
-    </Consumer>
-);
+    return (
+        <BadgesToolbar badges={badges}/>
+    )
+
+};

@@ -1,17 +1,5 @@
 import {BadgeConfig, BadgesConfig} from "./typings.interface";
-
-export const PARAM_BADGES_CONFIG_KEY = 'badgesConfig';
-export const PARAM_BADGES_KEY = 'badges';
-
-export enum BADGE {
-    DEFAULT = 'default',
-    BETA = 'beta',
-    STABLE = 'stable',
-    NEEDS_REVISION = 'needs-revision',
-    OBSOLETE = 'obsolete',
-    EXPERIMENTAL = 'experimental',
-    DEPRECATED = 'deprecated',
-}
+import {BADGE} from "./constants";
 
 export const defaultBadgesConfig: BadgesConfig = {
     [BADGE.DEFAULT]: {
