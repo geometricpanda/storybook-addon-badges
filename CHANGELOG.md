@@ -1,3 +1,15 @@
+# v2.0.0 (Tue Apr 11 2023)
+
+#### 💥 Breaking Change
+
+- chore(storybook-7): upgrades to support storybook 7 [#12](https://github.com/geometricpanda/storybook-addon-badges/pull/12) ([@geometricpanda](https://github.com/geometricpanda))
+
+#### Authors: 1
+
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+
+---
+
 # v1.1.1 (Wed Mar 01 2023)
 
 #### ⚠️ Pushed to `main`
