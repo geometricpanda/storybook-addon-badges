@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {Separator} from '@storybook/components';
 import {styled} from '@storybook/theming';
 import {Badge} from './badge.component';
+import {BadgesConfig} from "../typings.interface";
 
 const BadgesWrapper = styled.div(
     ({theme}) => ({

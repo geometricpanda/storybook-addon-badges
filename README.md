@@ -23,10 +23,10 @@ yarn add @geometricpanda/storybook-addon-badges
 
 ## Configuration
 
-In your `.storybook/main.js` you'll need to load `@geometricpanda/storybook-addon-badges` into Storybook:
+In your `.storybook/main.ts` you'll need to load `@geometricpanda/storybook-addon-badges` into Storybook:
 
-```js
-// .storybook/main.js
+```typescript
+// .storybook/main.ts
 module.exports = {
   stories: [],
   addons: ['@geometricpanda/storybook-addon-badges'],
@@ -35,32 +35,76 @@ module.exports = {
 
 Optionally, you can define custom badge styles in `.storybook/preview.ts`.
 
-```ts
+```typescript
 // .storybook/preview.ts
-import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import type {Preview} from "@storybook/react";
+import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+
+const preview: Preview = {
+    parameters: {
+        badgesConfig: <BadgesConfig>{
+            beta: {
+                styles: {
+                    backgroundColor: '#FFF',
+                    borderColor: '#018786',
+                    color: '#018786',
+                },
+                title: 'Beta',
+            },
+            deprecated: {
+                styles: {
+                    backgroundColor: '#FFF',
+                    borderColor: '#6200EE',
+                    color: '#6200EE',
+                },
+                title: 'Deprecated',
+            },
+        },
+    }
+}
+
+export default preview;
+```
+
+## Upgrade to Storybook 7
+
+As Storybook 7 has removed the `addParameters` method, we need to migrate to exporting a `preview` object.
+Thankfully it's not too dissimilar to what we had before.
+
+### Before
+
+```typescript
+// .storybook/preview.ts
 import {addParameters} from '@storybook/react';
+import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
 
 addParameters({
-  badgesConfig: <BadgesConfig>{
-    beta: {
-      styles: {
-        backgroundColor: '#FFF',
-        borderColor: '#018786',
-        color: '#018786',
-      },
-      title: 'Beta',
-    },
-    deprecated: {
-      styles: {
-        backgroundColor: '#FFF',
-        borderColor: '#6200EE',
-        color: '#6200EE',
-      },
-      title: 'Deprecated',
-    },
-  },
+    badgesConfig: <BadgesConfig>{
+        ...
+    }
 });
 ```
+
+### After
+
+```typescript
+// .storybook/preview.ts
+import type {Preview} from "@storybook/react";
+import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+
+const preview: Preview = {
+    parameters: {
+        badgesConfig: <BadgesConfig>{
+            ...
+        },
+    }
+};
+
+export default preview;
+```
+
+Please be aware that it's now advised that stories use CSF format with external MDX files just for the docs page.
+As such, this addon won't officially support MDX story format, but it'll probably work just fine.
 
 ## Tooltips
 
@@ -68,32 +112,36 @@ Optionally, you can define more complex tooltips for any of your badges.
 
 ```ts
 // .storybook/preview.ts
-import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
-import {addParameters} from '@storybook/react';
-            
-addParameters({
-  badgesConfig: <BadgesConfig>{
-    beta: {
-      tooltip: {
-        title: 'This is Beta',
-        desc: 'Be ready to receive updates frequently and leave a feedback',
-        links: [
-          { title: 'Read more', href: 'http://path/to/your/docs' },
-          {
-            title: 'Leave feedback',
-            onClick: () => {
-              alert('thanks for the feedback');
+import type {Preview} from "@storybook/react";
+import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+
+const preview: Preview = {
+    parameters: {
+        badgesConfig: <BadgesConfig>{
+            beta: {
+                tooltip: {
+                    title: 'This is Beta',
+                    desc: 'Be ready to receive updates frequently and leave a feedback',
+                    links: [
+                        {title: 'Read more', href: 'http://path/to/your/docs'},
+                        {
+                            title: 'Leave feedback',
+                            onClick: () => {
+                                alert('thanks for the feedback');
+                            },
+                        },
+                    ],
+                },
             },
-          },
-        ],
-      },
-    },
-    deprecated: {
-      title: "Deprecated",
-      tooltip: 'This component is deprecated, please avoid using it.',
-    },
-  },
-});
+            deprecated: {
+                title: "Deprecated",
+                tooltip: 'This component is deprecated, please avoid using it.',
+            },
+        },
+    }
+};
+
+export default preview;
 ```
 
 The key for each badge will be what's used throughout storybook to invoke that badge.
@@ -108,27 +156,33 @@ _Tip: If you prefer, instead of using the `addParameters` function, you can also
 export `const parameters` containing a full parameters object._
 
 ```typescript
-// .storybook/constants.js
+// .storybook/constants.ts
 export enum BADGES {
-  STATUS = 'status',
+    STATUS = 'status',
 }
+```
 
+```typescript
 // .storybook/preview.ts
+import type {Preview} from "@storybook/react";
 import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
-import {addParameters} from '@storybook/react';
 
-addParameters({
-  badgesConfig: <BadgesConfig>{
-    [BADGE.STATUS]: {
-      styles: {
-        backgroundColor: '#FFF',
-        borderColor: '#018786',
-        color: '#018786',
-      },
-      title: 'Status',
-    },
-  },
-});
+const preview: Preview = {
+    parameters: {
+        badgesConfig: <BadgesConfig>{
+            [BADGE.STATUS]: {
+                styles: {
+                    backgroundColor: '#FFF',
+                    borderColor: '#018786',
+                    color: '#018786',
+                },
+                title: 'Status',
+            },
+        },
+    }
+};
+
+export default preview;
 ```
 
 ## Preconfigured badges
@@ -153,21 +207,25 @@ Should you wish to override these styles you can do by configuring a badge with 
 
 ```typescript
 // .storybook/preview.ts
+import type {Preview} from "@storybook/react";
 import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
-import {addParameters} from '@storybook/react';
 
-addParameters({
-    badgesConfig: <BadgeConfig>{
-        [BADGE.STATUS]: {
-            styles: {
-                backgroundColor: '#FFF',
-                borderColor: '#018786',
-                color: '#018786',
+const preview: Preview = {
+    parameters: {
+        badgesConfig: <BadgeConfig>{
+            [BADGE.STATUS]: {
+                styles: {
+                    backgroundColor: '#FFF',
+                    borderColor: '#018786',
+                    color: '#018786',
+                },
+                title: 'Status',
             },
-            title: 'Status',
         },
-    },
-});
+    }
+}
+
+export default preview;
 ```
 
 Valid options for the `styles` configuration are:
@@ -268,14 +326,3 @@ ThirdComponent.parameters = {
 };
 ```
 
-## MDX
-
-In your `mdx` documentation you can add badges to your stories
-using the `<Meta>` component.
-
-```jsx
-import { Meta } from '@storybook/addon-docs/blocks';
-import { BADGE } from '@geometricpanda/storybook-addon-badges';
-
-<Meta title="Path/To/MyComponent" parameters={{ badges: [BADGE.BETA] }} />;
-```

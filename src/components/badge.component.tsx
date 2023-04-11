@@ -1,10 +1,13 @@
 import React, {FC} from 'react';
 import {styled} from '@storybook/theming';
-import {useParameter} from "@storybook/api";
+// import {useParameter} from "@storybook/api";
 
-import {defaultBadgeConfig, defaultBadgesConfig, PARAM_BADGES_CONFIG_KEY} from "../config";
+import {defaultBadgeConfig, defaultBadgesConfig} from "../config";
 import {BadgeTooltipWrapper} from './badge-tooltip-wrapper.component';
-import type {BadgeConfig, BadgesConfig} from "../typings.interface";
+import type {BadgeConfig} from "../typings.interface";
+import {useStorybookApi} from "@storybook/manager-api";
+import {BadgesConfig} from "../typings.interface";
+import {PARAM_CONFIG_KEY} from "../constants";
 
 export interface StyledBadgeProps {
     config: BadgeConfig;
@@ -35,7 +38,9 @@ export interface BadgeProps {
 }
 
 export const Badge: FC<BadgeProps> = ({badge}) => {
-    const customBadgesConfig = useParameter<BadgesConfig>(PARAM_BADGES_CONFIG_KEY, {});
+    const api = useStorybookApi();
+    const customBadgesConfig = api.getCurrentParameter<BadgesConfig>(PARAM_CONFIG_KEY) || {};
+
 
     const badgesConfig = {
         ...defaultBadgesConfig,
