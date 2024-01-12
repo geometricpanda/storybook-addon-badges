@@ -1,3 +1,15 @@
+# v2.0.1 (Fri Jan 12 2024)
+
+#### 🐛 Bug Fix
+
+- fix: do not render separators if no badges [#16](https://github.com/geometricpanda/storybook-addon-badges/pull/16) ([@kzimins-arvatosystems](https://github.com/kzimins-arvatosystems))
+
+#### Authors: 1
+
+- Konstantīns Zimins ([@kzimins-arvatosystems](https://github.com/kzimins-arvatosystems))
+
+---
+
 # v2.0.0 (Tue Apr 11 2023)
 
 #### 💥 Breaking Change
