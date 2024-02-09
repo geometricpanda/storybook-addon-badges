@@ -1,3 +1,15 @@
+# v2.0.2 (Fri Feb 09 2024)
+
+#### 🐛 Bug Fix
+
+- Export types from index. [#19](https://github.com/geometricpanda/storybook-addon-badges/pull/19) ([@DrJKL](https://github.com/DrJKL))
+
+#### Authors: 1
+
+- Alexander Brown ([@DrJKL](https://github.com/DrJKL))
+
+---
+
 # v2.0.1 (Fri Jan 12 2024)
 
 #### 🐛 Bug Fix
