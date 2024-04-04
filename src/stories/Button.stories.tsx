@@ -14,6 +14,24 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
+export const AllBadges: Story = {
+  parameters: {
+    badges: [
+      BADGE.DEFAULT,
+      BADGE.BETA,
+      BADGE.STABLE,
+      BADGE.NEEDS_REVISION,
+      BADGE.OBSOLETE,
+      BADGE.EXPERIMENTAL,
+      BADGE.DEPRECATED,
+    ]
+  },
+  args: {
+    primary: true,
+    label: "Button",
+  },
+};
+
 export const Primary: Story = {
   args: {
     primary: true,
