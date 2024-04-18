@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-import packageJson from "../package.json";
+import packageJson from "../package.json" assert { type: 'json' };
 import boxen from "boxen";
 import dedent from "dedent";
 
