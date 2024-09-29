@@ -1,3 +1,22 @@
+# v2.0.3 (Sun Sep 29 2024)
+
+#### 🐛 Bug Fix
+
+- fix: 🐛 Resolves yarn version mismatch in release workflow [#23](https://github.com/geometricpanda/storybook-addon-badges/pull/23) ([@JamesIves](https://github.com/JamesIves))
+- Storybook 8 compatibility [#22](https://github.com/geometricpanda/storybook-addon-badges/pull/22) ([@evg4b](https://github.com/evg4b))
+
+#### ⚠️ Pushed to `main`
+
+- chore: updating setup-node action ([@geometricpanda](https://github.com/geometricpanda))
+
+#### Authors: 3
+
+- Evgeny Abramovich ([@evg4b](https://github.com/evg4b))
+- James Ives ([@JamesIves](https://github.com/JamesIves))
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+
+---
+
 # v2.0.2 (Fri Feb 09 2024)
 
 #### 🐛 Bug Fix
