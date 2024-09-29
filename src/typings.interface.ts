@@ -22,6 +22,7 @@ export type BadgeConfig = {
         paddingInline?: Property.PaddingInline,
         textTransform?: Property.TextTransform,
     };
+    location?: Array<'toolbar' | 'toolbar-extra' | 'sidebar'>;
     title?: string;
     tooltip?: TooltipConfig;
 };

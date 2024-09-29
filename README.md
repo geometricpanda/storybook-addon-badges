@@ -37,34 +37,69 @@ Optionally, you can define custom badge styles in `.storybook/preview.ts`.
 
 ```typescript
 // .storybook/preview.ts
-import type {Preview} from "@storybook/react";
-import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import type { Preview } from "@storybook/react";
+import { BADGE, BadgesConfig, BADGE_LOCATION } from "@geometricpanda/storybook-addon-badges";
 
 const preview: Preview = {
-    parameters: {
-        badgesConfig: <BadgesConfig>{
-            beta: {
-                styles: {
-                    backgroundColor: '#FFF',
-                    borderColor: '#018786',
-                    color: '#018786',
-                },
-                title: 'Beta',
-            },
-            deprecated: {
-                styles: {
-                    backgroundColor: '#FFF',
-                    borderColor: '#6200EE',
-                    color: '#6200EE',
-                },
-                title: 'Deprecated',
-            },
+  parameters: {
+    badgesConfig: <BadgesConfig>{
+      beta: {
+        styles: {
+          backgroundColor: '#FFF',
+          borderColor: '#018786',
+          color: '#018786',
         },
-    }
+        location: [BADGE_LOCATION.TOOLBAR, BADGE_LOCATION.SIDEBAR],
+        title: 'Beta',
+      },
+      deprecated: {
+        styles: {
+          backgroundColor: '#FFF',
+          borderColor: '#6200EE',
+          color: '#6200EE',
+        },
+        location: [BADGE_LOCATION.TOOLBAR_EXTRA],
+        title: 'Deprecated',
+      },
+    },
+  }
 }
 
 export default preview;
 ```
+
+## New features
+
+- You can now define the location of each badge in the config
+
+### Badge Locations
+
+You can import a list of locations for badges using the following import:
+
+```typescript
+import { BADGE_LOCATION } from "@geometricpanda/storybook-addon-badges";
+```
+
+You can then set the badge location via the config object:
+
+```typescript
+badgesConfig: <BadgesConfig>{
+  beta: {
+    styles: {
+      backgroundColor: "#FFF",
+      borderColor: "#018786",
+      color: "#018786"
+    },
+    location: [BADGE_LOCATION.TOOLBAR, BADGE_LOCATION.SIDEBAR],
+    title: "Beta"
+  }
+};
+```
+
+If the location is not set, or the location array is empty, the badge will be displayed in the toolbar.
+
+**Please note that there is a known quirk of the `sidebar` location, which means that it only renders for the currently
+active story.**
 
 ## Upgrade to Storybook 7
 
@@ -75,13 +110,13 @@ Thankfully it's not too dissimilar to what we had before.
 
 ```typescript
 // .storybook/preview.ts
-import {addParameters} from '@storybook/react';
-import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import { addParameters } from '@storybook/react';
+import { BadgesConfig } from "@geometricpanda/storybook-addon-badges";
 
 addParameters({
-    badgesConfig: <BadgesConfig>{
-        ...
-    }
+  badgesConfig: <BadgesConfig>{
+    ...
+  }
 });
 ```
 
@@ -89,15 +124,15 @@ addParameters({
 
 ```typescript
 // .storybook/preview.ts
-import type {Preview} from "@storybook/react";
-import {BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import type { Preview } from "@storybook/react";
+import { BadgesConfig } from "@geometricpanda/storybook-addon-badges";
 
 const preview: Preview = {
-    parameters: {
-        badgesConfig: <BadgesConfig>{
-            ...
-        },
-    }
+  parameters: {
+    badgesConfig: <BadgesConfig>{
+      ...
+    },
+  }
 };
 
 export default preview;
@@ -112,33 +147,33 @@ Optionally, you can define more complex tooltips for any of your badges.
 
 ```ts
 // .storybook/preview.ts
-import type {Preview} from "@storybook/react";
-import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import type { Preview } from "@storybook/react";
+import { BADGE, BadgesConfig } from "@geometricpanda/storybook-addon-badges";
 
 const preview: Preview = {
-    parameters: {
-        badgesConfig: <BadgesConfig>{
-            beta: {
-                tooltip: {
-                    title: 'This is Beta',
-                    desc: 'Be ready to receive updates frequently and leave a feedback',
-                    links: [
-                        {title: 'Read more', href: 'http://path/to/your/docs'},
-                        {
-                            title: 'Leave feedback',
-                            onClick: () => {
-                                alert('thanks for the feedback');
-                            },
-                        },
-                    ],
-                },
+  parameters: {
+    badgesConfig: <BadgesConfig>{
+      beta: {
+        tooltip: {
+          title: 'This is Beta',
+          desc: 'Be ready to receive updates frequently and leave a feedback',
+          links: [
+            { title: 'Read more', href: 'http://path/to/your/docs' },
+            {
+              title: 'Leave feedback',
+              onClick: () => {
+                alert('thanks for the feedback');
+              },
             },
-            deprecated: {
-                title: "Deprecated",
-                tooltip: 'This component is deprecated, please avoid using it.',
-            },
+          ],
         },
-    }
+      },
+      deprecated: {
+        title: "Deprecated",
+        tooltip: 'This component is deprecated, please avoid using it.',
+      },
+    },
+  }
 };
 
 export default preview;
@@ -158,28 +193,28 @@ export `const parameters` containing a full parameters object._
 ```typescript
 // .storybook/constants.ts
 export enum BADGES {
-    STATUS = 'status',
+  STATUS = 'status',
 }
 ```
 
 ```typescript
 // .storybook/preview.ts
-import type {Preview} from "@storybook/react";
-import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import type { Preview } from "@storybook/react";
+import { BADGE, BadgesConfig } from "@geometricpanda/storybook-addon-badges";
 
 const preview: Preview = {
-    parameters: {
-        badgesConfig: <BadgesConfig>{
-            [BADGE.STATUS]: {
-                styles: {
-                    backgroundColor: '#FFF',
-                    borderColor: '#018786',
-                    color: '#018786',
-                },
-                title: 'Status',
-            },
+  parameters: {
+    badgesConfig: <BadgesConfig>{
+      [BADGE.STATUS]: {
+        styles: {
+          backgroundColor: '#FFF',
+          borderColor: '#018786',
+          color: '#018786',
         },
-    }
+        title: 'Status',
+      },
+    },
+  }
 };
 
 export default preview;
@@ -207,22 +242,22 @@ Should you wish to override these styles you can do by configuring a badge with 
 
 ```typescript
 // .storybook/preview.ts
-import type {Preview} from "@storybook/react";
-import {BADGE, BadgesConfig} from "@geometricpanda/storybook-addon-badges";
+import type { Preview } from "@storybook/react";
+import { BADGE, BadgesConfig } from "@geometricpanda/storybook-addon-badges";
 
 const preview: Preview = {
-    parameters: {
-        badgesConfig: <BadgeConfig>{
-            [BADGE.STATUS]: {
-                styles: {
-                    backgroundColor: '#FFF',
-                    borderColor: '#018786',
-                    color: '#018786',
-                },
-                title: 'Status',
-            },
+  parameters: {
+    badgesConfig: <BadgeConfig>{
+      [BADGE.STATUS]: {
+        styles: {
+          backgroundColor: '#FFF',
+          borderColor: '#018786',
+          color: '#018786',
         },
-    }
+        title: 'Status',
+      },
+    },
+  }
 }
 
 export default preview;
@@ -261,7 +296,10 @@ import { BADGE } from '@geometricpanda/storybook-addon-badges';
 export default {
   title: 'Path/To/MyComponent',
   parameters: {
-    badges: [BADGE.DEPRECATED, BADGE.OBSOLETE],
+    badges: [
+      BADGE.DEPRECATED,
+      BADGE.OBSOLETE
+    ],
   },
 };
 

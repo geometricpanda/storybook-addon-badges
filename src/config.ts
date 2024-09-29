@@ -23,6 +23,7 @@ export const defaultBadgesConfig: BadgesConfig = {
     },
     [BADGE.NEEDS_REVISION]: {
         title: 'Needs Revision',
+        location: ['toolbar-extra'],
         styles: {
             backgroundColor: '#FFEFD2',
             borderColor: '#66460D',
@@ -31,6 +32,7 @@ export const defaultBadgesConfig: BadgesConfig = {
     },
     [BADGE.OBSOLETE]: {
         title: 'Obsolete',
+        location: ['sidebar'],
         styles: {
             backgroundColor: '#F9DADA',
             borderColor: '#7D2828',

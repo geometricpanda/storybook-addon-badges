@@ -24,7 +24,7 @@ export const AllBadges: Story = {
       BADGE.OBSOLETE,
       BADGE.EXPERIMENTAL,
       BADGE.DEPRECATED,
-    ]
+    ],
   },
   args: {
     primary: true,
