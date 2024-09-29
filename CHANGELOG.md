@@ -1,3 +1,20 @@
+# v2.0.4 (Sun Sep 29 2024)
+
+#### ⚠️ Pushed to `main`
+
+- chore: remove install state ([@geometricpanda](https://github.com/geometricpanda))
+- chore: ignore install-state.gz ([@geometricpanda](https://github.com/geometricpanda))
+- chore: updates action to use differnet yarn command ([@geometricpanda](https://github.com/geometricpanda))
+- chore: fix lockfile ([@geometricpanda](https://github.com/geometricpanda))
+- Merge branch 'main' of https://github.com/geometricpanda/storybook-addon-badges ([@geometricpanda](https://github.com/geometricpanda))
+- feat: add ability to control location ([@geometricpanda](https://github.com/geometricpanda))
+
+#### Authors: 1
+
+- Jim Drury (he/him) ([@geometricpanda](https://github.com/geometricpanda))
+
+---
+
 # v2.0.3 (Sun Sep 29 2024)
 
 #### 🐛 Bug Fix
