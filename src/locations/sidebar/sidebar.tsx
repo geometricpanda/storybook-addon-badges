@@ -15,7 +15,7 @@ export const Sidebar: FC<SidebarProps> = ({ item }) => {
   const params = api.getParameters(item.id);
 
   if (!params || !params[PARAM_BADGES_KEY] || !params[PARAM_CONFIG_KEY]) {
-    return item.title;
+    return item.name;
   }
 
   const storyBadges: Array<string> = params[PARAM_BADGES_KEY];
@@ -32,7 +32,7 @@ export const Sidebar: FC<SidebarProps> = ({ item }) => {
 
   return (
     <>
-      {item.title}
+      {item.name}
       <Badges badges={badges} />
     </>
   );
