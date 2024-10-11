@@ -1,6 +1,6 @@
 {
   "name": "@geometricpanda/storybook-addon-badges",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A Storybook addon which allows you to add badges to your stories",
   "keywords": [
     "storybook-addons",
