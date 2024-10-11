@@ -1,3 +1,15 @@
+# v2.0.5 (Fri Oct 11 2024)
+
+#### 🐛 Bug Fix
+
+- fix: use the item's name as the name of the leaf node [#27](https://github.com/geometricpanda/storybook-addon-badges/pull/27) ([@DanielRose](https://github.com/DanielRose))
+
+#### Authors: 1
+
+- Daniel Rose ([@DanielRose](https://github.com/DanielRose))
+
+---
+
 # v2.0.4 (Sun Sep 29 2024)
 
 #### ⚠️ Pushed to `main`
